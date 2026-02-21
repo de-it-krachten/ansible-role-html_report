@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <title>{{ html_report_table_name }} reports</title>
+  <link rel="stylesheet" type="text/css" href="{{ html_report_datatables_css }}">
+    <style type="text/css" class="init">
+  </style>
+
+  <script type="text/javascript" language="javascript" src="{{ html_report_jquery }}"></script>
+  <script type="text/javascript" language="javascript" src="{{ html_report_datatables_js }}"></script>
+  <script type="text/javascript" class="init">
+
+$(document).ready(function () {
+  $('#{{ html_report_table_name }}').DataTable();
+});
+
+
+  </script>
+</head>
+
+<table id="{{ html_report_table_name }}" class="display">
+    <thead>
+        <tr>
+{% for header in html_report_table_headers %}
+            <th>{{ header }}</th>
+{% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+{% for entry in html_report_data %}
+        <tr>
+{% for header in html_report_table_headers %}
+{% if entry[header] is search('^http(s)*://') and html_report_link %}
+            <td><a href="{{entry[header] }}">link</a></td>
+{% else %}
+            <td>{{ entry[header] }}</td>
+{% endif %}
+{% endfor %}
+        </tr>
+{% endfor %}
+    </tbody>
+</table>

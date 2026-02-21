@@ -1,0 +1,24 @@
+---
+
+# jquery & datatables setings
+html_report_datatables_css: https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.css
+html_report_datatables_js: https://cdn.datatables.net/2.3.7/js/dataTables.js
+html_report_jquery: https://code.jquery.com/jquery-3.7.1.js
+
+# File to convert into HTML report
+# html_report_file: /tmp/report.csv
+
+# Provide data sugin a variable instead of file
+# html_report_data: [ { 'f1': 'x', 'f2': 'y' } ]
+
+# File location to place the report
+# html_report_path: /tmp/report.html
+
+# Name of the table
+# html_report_table_name: TEST
+
+# Template to use for creating the HTML report
+html_report_template: table.html.j2
+
+# Convert field that start with http/https into links
+html_report_link: true
