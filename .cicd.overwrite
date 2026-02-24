@@ -11,7 +11,7 @@ generic:
   collections: []
 
 # Supported platforms
-platforms:
+#platforms:
 #  rhel7:
 #    ci: false
 #    supported: false
@@ -66,12 +66,12 @@ platforms:
 #  almalinux10:
 #    ci: false
 #    supported: false
-  sles15:
-    ci: false
-    supported: false
-  opensuse15:
-    ci: false
-    supported: false
+#  sles15:
+#    ci: false
+#    supported: false
+#  opensuse15:
+#    ci: false
+#    supported: false
 #  debian10:
 #    ci: false
 #    supported: false
