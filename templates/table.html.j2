@@ -34,6 +34,10 @@ $(document).ready(function () {
 {% for header in html_report_table_headers %}
 {% if entry[header] is search('^http(s)*://') and html_report_link %}
             <td><a href="{{entry[header] }}">link</a></td>
+{% elif entry[header] is search ('^red:') %}
+            <td><p style="background-color: red; color: white;">{{ entry[header] | regex_replace('^red:') }}</p></td>
+{% elif entry[header] is search ('^green:') %}
+            <td><p style="background-color: green; color: black;">{{ entry[header] | regex_replace('green:') }}</p></td>
 {% else %}
             <td>{{ entry[header] }}</td>
 {% endif %}
