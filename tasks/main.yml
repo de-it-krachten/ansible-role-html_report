@@ -1,0 +1,49 @@
+---
+
+- name: Assertions
+  ansible.builtin.assert:
+    that:
+      - html_report_path is defined
+      - html_report_table_name is defined
+      - html_report_file is defined or html_report_data is defined
+
+- name: Read external CSV file
+  when:
+    - html_report_file is defined
+    - html_report_file is search('\.csv$')
+  block:
+
+    - name: Read data from external CSV file
+      community.general.read_csv:
+        path: "{{ html_report_file }}"
+      register: __csv
+
+    - name: Get the data in the format we need
+      ansible.builtin.set_fact:
+        html_report_data: "{{ __csv.list }}"
+
+- name: Read external YAML file
+  when:
+    - html_report_file is defined
+    - html_report_file is search('\.(yml|yaml)$')
+  block:
+
+    - name: Digest the data
+      ansible.builtin.slurp:
+        src: "{{ html_report_file }}"
+      register: yaml_content
+
+    - name: Read data from external YAML file
+      ansible.builtin.set_fact:
+        html_report_data: "{{ yaml_content.content | b64decode | from_yaml }}"
+
+- name: Get tables headers
+  ansible.builtin.set_fact:
+    html_report_table_headers: >-
+      {{ html_report_data | first | dict2items | json_query('[].key') }}
+
+- name: Create HTML report from template
+  ansible.builtin.template:
+    src: "{{ html_report_template }}"
+    dest: "{{ html_report_path }}"
+    mode: "{{ html_report_mode | default('0644') }}"

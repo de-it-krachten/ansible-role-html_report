@@ -1,0 +1,13 @@
+---
+
+- name: Converge pre
+  hosts: all
+  become: "yes"
+  vars:
+    molecule_driver: "{{ lookup('env', 'MOLECULE_DRIVER_NAME') }}"
+  tasks:
+    - name: Copy CSV file
+      ansible.builtin.copy:
+        src: tests/customers-100.csv
+        dest: /tmp/customers-100.csv
+        mode: "0644"

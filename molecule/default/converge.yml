@@ -1,0 +1,18 @@
+---
+
+- name: Converge pre playbook
+  ansible.builtin.import_playbook: converge-pre.yml
+  when: molecule_converge_pre is undefined or molecule_converge_pre | bool
+
+- name: Converge
+  hosts: all
+  become: "yes"
+  vars:
+    molecule_driver: "{{ lookup('env', 'MOLECULE_DRIVER_NAME') }}"
+    html_report_path: /tmp/customers.html
+    html_report_file: /tmp/customers-100.csv
+    html_report_table_name: TEST
+  tasks:
+    - name: Include role 'ansible-role-html_report'
+      ansible.builtin.include_role:
+        name: ansible-role-html_report
