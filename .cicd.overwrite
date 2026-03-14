@@ -10,21 +10,6 @@ generic:
     See https://datatables.net
   collections: []
 
-# Supported platforms
-platforms:
-  sles15:
-    supported: true
-    ci: false
-  sles16:
-    supported: true
-    ci: false
-  opensuse15:
-    supported: true
-    ci: true
-  opensuse16:
-    supported: true
-    ci: true
-
 # Molecule
 molecule:
   requirements:
