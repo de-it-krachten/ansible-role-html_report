@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/de-it-krachten/ansible-role-html_report/compare/v1.1.0...v1.2.0) (2026-07-26)
+
+
+### Features
+
+* Added support for Fedora 44 ([4833460](https://github.com/de-it-krachten/ansible-role-html_report/commit/483346057767a60153caf141f66288dde1c692b5))
+* Added support for Ubuntu 26.04 LTS ([9e4b1dc](https://github.com/de-it-krachten/ansible-role-html_report/commit/9e4b1dc67b1f1d2ccb461365c0ebd813d950e84f))
+* Drop support for Fedora 42 ([71acb44](https://github.com/de-it-krachten/ansible-role-html_report/commit/71acb440d02b27884f3c64b9909b11efba983e36))
+
 # [1.1.0](https://github.com/de-it-krachten/ansible-role-html_report/compare/v1.0.0...v1.1.0) (2026-03-15)
 
 
