@@ -1,6 +1,44 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <title>{{ html_report_table_name }} reports</title>
+  
+  <!-- Core DataTables CSS -->
+  <link rel="stylesheet" type="text/css" href="{{ html_report_datatables_css }}">
+  <!-- Buttons Extension CSS -->
+  <link rel="stylesheet" type="text/css" href="{{ html_report_buttons_css }}">
+
+  <style type="text/css" class="init">
+  </style>
+
+  <!-- jQuery -->
+  <script type="text/javascript" language="javascript" src="{{ html_report_jquery }}"></script>
+  <!-- Core DataTables JS -->
+  <script type="text/javascript" language="javascript" src="{{ html_report_datatables_js }}"></script>
+  <!-- Buttons Extension JS -->
+  <script type="text/javascript" language="javascript" src="{{ html_report_buttons }}"></script>
+  <!-- JSZip (Required for CSV/Excel) -->
+  <script type="text/javascript" language="javascript" src="{{ html_report_jszip }}"></script>
+  <!-- HTML5 Export Logic (Required for CSV) -->
+  <script type="text/javascript" language="javascript" src="{{ html_report_buttons_html5 }}"></script>
+
+  <script type="text/javascript" class="init">
+  $(document).ready(function () {
+    $('#{{ html_report_table_name }}').DataTable({
+      layout: {
+        topStart: {
+          buttons: ['csv']
+        }
+      }
+    });
+  });
+  </script>
+</head>
+
+
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
   <title>{{ html_report_table_name }} reports</title>
