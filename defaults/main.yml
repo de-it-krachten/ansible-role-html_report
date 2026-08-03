@@ -1,14 +1,9 @@
 ---
 
 # jquery & datatables setings
-html_report_datatables_css: https://cdn.datatables.net/3.0.1/css/dataTables.dataTables.css
-html_report_datatables_js: https://cdn.datatables.net/3.0.1/js/dataTables.js
+html_report_datatables_css: https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.css
+html_report_datatables_js: https://cdn.datatables.net/2.3.7/js/dataTables.js
 html_report_jquery: https://code.jquery.com/jquery-3.7.1.js
-html_report_buttons: https://cdn.datatables.net/buttons/4.0.1/js/dataTables.buttons.min.js
-html_report_buttons_html5: https://cdn.datatables.net/buttons/4.0.1/js/buttons.html5.js
-html_report_buttons_css: https://cdn.datatables.net/buttons/4.0.1/css/buttons.dataTables.min.css
-html_report_jszip: https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js
-
 
 # File to convert into HTML report
 # html_report_file: /tmp/report.csv
