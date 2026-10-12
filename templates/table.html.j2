@@ -4,10 +4,55 @@
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
   <title>{{ html_report_table_name }} reports</title>
+
   <link rel="stylesheet" type="text/css" href="{{ html_report_datatables_css }}">
     <style type="text/css" class="init">
   </style>
 
+{% if html_report_button_export | bool %}
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/3.2.2/css/buttons.dataTables.css">
+    <style type="text/css" class="init">
+  </style>
+
+  <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/2.3.7/js/dataTables.js"></script>
+  <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/3.2.2/js/dataTables.buttons.js"></script>
+  <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.html5.js"></script>
+  <script type="text/javascript" class="init">
+
+$(document).ready(function () {
+  $('#{{ html_report_table_name }}').DataTable({
+    lengthMenu: [10, 25, 50, 100, { label: 'All', value: -1 }],
+    layout: {
+      topStart: {
+        pageLength: {}
+      },
+      topEnd: {
+        search: {},
+        buttons: [
+          {
+            extend: 'csv',
+            text: 'Export to CSV',
+            exportOptions: {
+              modifier: {
+                page: 'all',
+                search: 'none'
+              }
+            }
+          }
+        ]
+      }
+    }
+  });
+});
+
+{% else %}
+
+  <link rel="stylesheet" type="text/css" href="{{ html_report_datatables_css }}">
+    <style type="text/css" class="init">
+  </style>
   <script type="text/javascript" language="javascript" src="{{ html_report_jquery }}"></script>
   <script type="text/javascript" language="javascript" src="{{ html_report_datatables_js }}"></script>
   <script type="text/javascript" class="init">
@@ -16,9 +61,14 @@ $(document).ready(function () {
   $('#{{ html_report_table_name }}').DataTable();
 });
 
+{% endif %}
+
 
   </script>
 </head>
+
+<h1>{{ html_report_table_name }} report</h1>
+<p>Generated: {{ lookup('pipe', 'date +%d-%b-%Y') | lower }}</p>
 
 <table id="{{ html_report_table_name }}" class="display">
     <thead>

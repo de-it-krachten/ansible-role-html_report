@@ -33,7 +33,6 @@ Supported platforms
 - AlmaLinux 8
 - AlmaLinux 9
 - AlmaLinux 10
-- Debian 11 (Bullseye)
 - Debian 12 (Bookworm)
 - Debian 13 (Trixie)
 - Ubuntu 22.04 LTS
@@ -71,6 +70,9 @@ html_report_template: table.html.j2
 
 # Convert field that start with http/https into links
 html_report_link: true
+
+# Provide an export to CSV button
+html_report_button_export: false
 </pre></code>
 
 
