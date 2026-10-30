@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/de-it-krachten/ansible-role-html_report/compare/v1.2.0...v1.3.0) (2026-10-30)
+
+
+### Features
+
+* Add optional export button to CSV ([f50eab8](https://github.com/de-it-krachten/ansible-role-html_report/commit/f50eab8002728ab16b8e18872c97c91cddf421d4))
+* Drop support for Debian 11 (Bullseye) ([8a14cf1](https://github.com/de-it-krachten/ansible-role-html_report/commit/8a14cf1070935b0a8060802f4a9bf6e13e2f4d53))
+
 # [1.2.0](https://github.com/de-it-krachten/ansible-role-html_report/compare/v1.1.0...v1.2.0) (2026-07-26)
 
 
