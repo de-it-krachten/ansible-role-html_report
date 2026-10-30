@@ -22,3 +22,6 @@ html_report_template: table.html.j2
 
 # Convert field that start with http/https into links
 html_report_link: true
+
+# Provide an export to CSV button
+html_report_button_export: false
